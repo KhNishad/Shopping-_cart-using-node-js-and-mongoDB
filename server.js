@@ -38,12 +38,8 @@ app.use(session({
     cookie:{secure: true}
 }));
 
-// Express Messages middleware
-app.use(require('connect-flash')());
-app.use(function (req, res, next) {
-    res.locals.messages = require('express-messages')(req, res);
-    next();
-});
+// Express Validator middleware
+
 
 // get method
 
@@ -56,14 +52,10 @@ app.use(function (req, res, next) {
 var pages = require('./routes/pages');
 var Adminpages = require('./routes/admin_pages.js');
 
-// app.use('/',pages);
-// app.use ('/admin/pages',Adminpages);
+app.use('/',pages);
+app.use ('/admin/pages',Adminpages);
 
-app.get('/',(req,res)=>{
-    res.render('index.ejs',{
-        title: "Home"
-    });
-})
+
 
 app.listen(3000,(req,res)=>{
     console.log("Server is running at 3000");

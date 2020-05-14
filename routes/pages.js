@@ -5,7 +5,9 @@ var routes = express.Router();
 
 
 routes.get('/', (req, res) => {
-    res.send("working");
+    res.render('index.ejs',{
+        title : "HOME"
+    })
 });
 
 
