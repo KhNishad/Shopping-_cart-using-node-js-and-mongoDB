@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var config   = require('./config/database');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var expressValidator = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
 
 
@@ -18,7 +18,7 @@ db.on('error', console.error.bind(console,'connection error;'));
 db.once('open',function (params) {
     console.log('DB connected');
     
-})
+});
 
 var app = express();
 app.set('views', path.join(__dirname, "views"));
